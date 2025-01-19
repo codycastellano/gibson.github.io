@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gibson 2025</title>
+    <body style="background-color:#FFD700;">
+	<style>
+	body {
+	   text-align: center;
+	   color: #DA291C;
+	}
+	div {
+	    column-count: 2;
+	    column-gap: 10px;
+	    column-rule-style: 1px solid #DA291C;
+	}   
+	</style>
+</head>
+<body>
+	<div>
+  <h2>London</h2>
+  <p>London is the capital city of England.</p>
+  <p>London has over 9 million inhabitants.</p>
+	</div>
+
+</body>
+</html>
