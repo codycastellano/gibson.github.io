@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gibson 2025</title>
+</head>
+<body>
+<p>
+2025 Manager of the Quarter/Crew of the Month Update
+Attention All Managers and Crew actively participating in this year’s competitions, please be aware that the point system, as of February 1st, will be adjusted for the points received for Service Times, Sales Increases and Completed PM Tasks. The New Guidelines is as follows, and can also be found on the updated Crew of the Month Flyers:
+
+Service Times:
+OEPE w/o Park: 90s= +5 | 120s↓= +3 |150s↓= +1 | 150s↑= -1 | 180s↑= -3 | 210s↑= -5
+KVS: 35s↓ = +5 | 60s↓ = +3 |70s↓ = +1 | 90s↑ = -1 | 105s↑ = -3 | 110s↑ = -5
+R2P: 40s↓ = -10 |  50s-90s = +10 | 120s↓ = + 2 | 120s↑ = -4 | 150s↑ = -8
+
+Sales Increases:
+	Instead of Calendar vs Calendar, Sales will now be based on Trading Sales increases, which means that daily sales will be compared to the same day (ex: Tuesday vs Tuesday) the year before, rather than the sales compared to the calendar day that matched with current day (ex: Tuesday vs Friday). This will make sale increases points fairer across the board. 
+Completed PM Tasks:
+	For PM Tasks from PM Calendar: + 25 pts
+	For PM Tasks Assigned by managers: + 15 pts 
+	Bathroom(s): +15 pts | Windows: +10 pts | Lobby Doors: + 10 pts
+		Calendar PM Tasks: + 15 pts | Other PM Tasks: + 10 pts (managers only)
+Important Notes:
+•	For Peak Service Times, only the hours you are working during said peak will count toward you rather than the full peak average.
+•	Voice Comments will be counted toward any crew during hours worked.
+OEPE w/o Park will be calculated by QsrSoft, NOT the HME Zoom timers. Please remember that even though they are not at the window, if you forget to serve/hold the order, the computer will not know they are no longer there!
+</p>
+</body>
+</html>
