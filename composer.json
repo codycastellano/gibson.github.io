@@ -3,6 +3,8 @@
   "description": "A project to send emails using PHPMailer",
   "require": {
     "phpmailer/phpmailer": "^6.5"
+    "vlucas/phpdotenv": "5.4"
+
   },
   "autoload": {
     "psr-4": {
