@@ -1,28 +1,47 @@
-name: Send Email with PHP
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-on: [push]
+require 'vendor/autoload.php';
 
-jobs:
-  send_email:
-    runs-on: ubuntu-latest
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
+    $mail = new PHPMailer(true);
 
-    - name: Install PHP dependencies
-      run: composer install
+    try {
+        //Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gibson2025.info'; // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'cody@gibson2025.info'; // SMTP username
+        $mail->Password   = 'Caspass25!'; // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-    - name: Run PHP script to send email
-      run: php send_email.php
-      env:
-        EMAIL_TO: ${{ secrets.EMAIL_TO }}
-        EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-        SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
-        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        //Recipients
+        $mail->setFrom($email, $name);
+        $mail->addAddress('cjcaste99@gmail.com'); // Add a recipient
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = "Contact Form Submission from $name";
+        $mail->Body    = nl2br($message);
+        $mail->AltBody = $message;
+
+        $mail->send();
+        echo "Message has been sent";
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+} else {
+    echo "Invalid request method.";
+}
+?>
