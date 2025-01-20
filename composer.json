@@ -1,13 +1,12 @@
 {
-  "name": "vendor/package",
-  "description": "A short description of your project",
+  "name": "your-vendor/your-package",
+  "description": "A project to send emails using PHPMailer",
   "require": {
-    "php": ">=7.4",
-    "monolog/monolog": "^2.0"
+    "phpmailer/phpmailer": "^6.5"
   },
   "autoload": {
     "psr-4": {
-      "Vendor\\Package\\": "src/"
+      "YourVendor\\YourPackage\\": "src/"
     }
   }
 }
