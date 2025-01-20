@@ -1,0 +1,13 @@
+{
+  "name": "vendor/package",
+  "description": "A short description of your project",
+  "require": {
+    "php": ">=7.4",
+    "monolog/monolog": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vendor\\Package\\": "src/"
+    }
+  }
+}
