@@ -34,4 +34,3 @@ jobs:
         SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         SMTP_PORT: ${{ secrets.SMTP_PORT }}
       run: php send_email.php
-?>
