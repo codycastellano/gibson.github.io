@@ -54,11 +54,11 @@
 <center>
 <form action="/send_email.php" method="post">
 <fieldset>  
-<legend>Direct to GM</legend>
+<legend>Coming Soon!</legend>
 <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="First Name" required><br>
+  <input type="text" id="fname" name="fname" value="First Name" readonly><br>
   <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Last Name" required><br><br>
+  <input type="text" id="lname" name="lname" value="Last Name" readonly><br><br>
 <label for="formoptions">Select an Option:</label>
 <select id="formoptions" name="formoptions">
   <option value="concern">Concern</option>
@@ -66,7 +66,7 @@
   <option value="complaint">Complaint</option>
   <option value="question">Question</option>
 </select><br><br>
-<textarea id="message" name="message" rows="10" cols="30" required>
+<textarea id="message" name="message" rows="10" cols="30" readonly>
 Please write your message here!
 </textarea><br><br>
   <input type="submit" value="Send">
