@@ -52,7 +52,7 @@
 </div>
 </b>
 <center>
-<form action="/action_page.php" target="_self" method="post">
+<form action="/send_email.php" method="post">
 <fieldset>  
 <legend>Direct to GM</legend>
 <label for="fname">First name:</label><br>
@@ -66,10 +66,10 @@
   <option value="complaint">Complaint</option>
   <option value="question">Question</option>
 </select><br><br>
-<textarea name="message" rows="10" cols="30">
+<textarea id="message" name="message" rows="10" cols="30" required>
 Please write your message here!
 </textarea><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Send">
   <input type="reset" value="Reset">
 </fieldset>
 </form>
