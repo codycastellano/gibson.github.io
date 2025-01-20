@@ -2,13 +2,16 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Autoload PHPMailer classes using Composer
 require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and validate input
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
+    // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format";
         exit;
@@ -17,16 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        //Server settings
+        // Server settings
         $mail->isSMTP();
         $mail->Host       = 'smtp.gibson2025.info'; // Set the SMTP server to send through
         $mail->SMTPAuth   = true;
         $mail->Username   = 'cody@gibson2025.info'; // SMTP username
-        $mail->Password   = 'Caspass25!'; // SMTP password
+        $mail->Password   = 'Caspass25!'; // SMTP password (consider using environment variables for security)
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        //Recipients
+        // Recipients
         $mail->setFrom($email, $name);
         $mail->addAddress('cjcaste99@gmail.com'); // Add a recipient
 
