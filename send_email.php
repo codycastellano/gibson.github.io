@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 use Dotenv\Dotenv;
 
 // Load environment variables from .env file
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
