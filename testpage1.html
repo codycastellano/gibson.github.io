@@ -68,8 +68,8 @@
 </div>
 </b>
     <h1>Comments and Concerns</h1>
-    <h1>Contact Us</h1>
-    <form id="contactForm">
+
+    <form id="contactForm" enctype="multipart/form-data">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br><br>
@@ -78,9 +78,9 @@
         <br><br>
         <label for="message">Message:</label>
         <textarea id="message" name="message" required></textarea>
-	<br><br>
-	<label for="myfile">Select a file:</label>
-	<input type="file" id="myfile" name="myfile">
+        <br><br>
+        <label for="file">Upload file:</label>
+        <input type="file" id="file" name="file"><br><br>
         <br><br>
         <input type="submit" value="Send">
     </form>
@@ -89,18 +89,21 @@
     document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault();
         
-        const formData = new URLSearchParams(new FormData(document.getElementById('contactForm')));
-
-        axios.post('https://script.google.com/macros/s/AKfycbx4uHOBiX3vs4AzgS-S3eRDC0gzKKCtIBSD8i73yonjTVPZbhMKdFBTo4xsMEnaCmE9/exec', formData)
-            .then(response => {
-                alert('Email sent successfully!');
-            })
-            .catch(error => {
-                console.error('Error sending email:', error);
-                alert('Error sending email: ' + error);
-            });
+        const formData = new FormData(document.getElementById('contactForm'));
+        
+        axios.post('https://script.google.com/macros/s/AKfycbzelZHWGTcJg6uPXUJQn671nl8ygWH_eGhqysA3FtQl0FnvdyNam_JC9FvdyM9XzP_Y/exec', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(response => {
+            alert('Email sent successfully!');
+        })
+        .catch(error => {
+            console.error('Error sending email:', error);
+            alert('Error sending email: ' + error);
+        });
     });
     </script>
-</center>
 </body>
 </html>
