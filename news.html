@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson 2025</title>
-    <body style="background-color:#FFC013;">
-	<style>
-	body {
-	   text-align: center;
-	   color: #DA291C;
-	}
+    <title>News Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DA291C;
+        }
+        header {
+            background-color: #FFC013;
+            color: #FFC013;
+            padding: 1em 0;
+            text-align: center;
+        }
 	h1 {
             text-align: center;
 	    color: #DA291C;
@@ -18,7 +25,7 @@
 	    text-decoration-line: underline;
 	    text-decoration-color: #FFC013;
 	    background-color: tan;
-	    border: 4px solid #DA291C;
+	    border: 4px solid #FFC013;
         }
         a:link {
 	     background-color: tan;  
@@ -27,7 +34,7 @@
  	     text-align: center;
  	     text-decoration: none;
  	     display: inline-block;
-	     border: 3px solid #DA291C;
+	     border: 3px solid #FFC013;
 	     border-radius: 30px;
  	}
 	a:hover {
@@ -35,18 +42,43 @@
         }
 	a:visited {
 	    color: #DA291C;
- 	}
-	h2 {
-	    column-span: all;
-	    text-decoration-line: underline;
-
+	    border: 3px solid #FFC013;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .main-article, .side-article {
+            background-color: #FFC013;
+	    color: #DA291C;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .main-article {
+            flex: 2;
+        }
+        .side-article {
+            flex: 1;
+        }
+        footer {
+            background-color: #FFC013;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: absolute;
+            width: 100%;
+        }
+	mark {
+	    background-color: #DA291C;
 	}
-	</style>
+    </style>
 </head>
 <body>
-<header>
-  <img src="banner3.png" alt="banner" />
-</header>
+    <header>
+          <img src="banner3.png" alt="banner" />
+    </header><br><br>
 <b><center>
 <div class="topnav">
   <a href="index.html">Home</a>
@@ -60,26 +92,26 @@
 </b></center>
 <h1>Gibson News and Updates</h1>
 <br><br>
-	<div style="border:3px solid #DA291C;
-		    background-color: tan;">
-  <h2>Corporate Visit Updates:</h2>
-  <p>Required Passing CFV Score is now 85% &#128517</p>
-  <p>Ecosure now will cite/take points off, rather than coach, on improper glove removing procedures, gloves must be taken off at the back of the hand!</p>
-	</div><br><br>
-	<div style="border:3px solid #DA291C;
-		    background-color: tan;">
+    <div class="container">
+        <div class="side-article">
   <h2>Awards:</h2>
   <p>Janurary Crew of The Month - TBD</p>
   <p>Manager of the Quarter 1 - TBD</p>
-	</div><br><br>
-	<div style="border:3px solid #DA291C;
-		    background-color: tan;">
+        </div>
+        <div class="main-article">
+  <h2>Corporate Visit Updates:</h2>
+  <p>Required Passing CFV Score is now 85% <mark>&#128517</mark></p>
+  <p>Ecosure now will cite/take points off, rather than coach, on improper glove removing procedures, gloves must be taken off at the back of the hand!</p>
+        </div>
+        <div class="side-article">
   <h2>Upcoming:</h2>
   <p>CFV Visit - Corporate - 1st Visit/3 Visits </p>
   <p>EcoSure Visit - Corporate - 1st Visit/2 Visits</p>
   <p>Monthly Cleanliness Walk-through with Skye - February</p>
-	</div><br><br>
-<a href="testpage1.html"></a>
-
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Gibson News.</p>
+    </footer>
 </body>
 </html>
