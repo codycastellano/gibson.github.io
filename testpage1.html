@@ -20,28 +20,20 @@
         <input type="submit" value="Send">
     </form>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="form-handler.js"></script>
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const formData = new FormData(document.getElementById('contactForm'));
-    const plainFormData = Object.fromEntries(formData.entries());
-    const jsonString = JSON.stringify(plainFormData);
-
-    axios.post('https://script.google.com/macros/s/AKfycbzzlASihr9OtBbPmJrxspKABsOPPvN76gz2o6rsBTuj5IA7Fbae9T6N-D0406hZYMNo/exec', jsonString, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => {
-        alert('Email sent successfully!');
-    })
-    .catch(error => {
-        alert('Error sending email: ' + error);
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(document.getElementById('contactForm'));
+        
+        axios.post('https://script.google.com/macros/s/AKfycbzzlASihr9OtBbPmJrxspKABsOPPvN76gz2o6rsBTuj5IA7Fbae9T6N-D0406hZYMNo/exec', formData)
+            .then(response => {
+                alert('Email sent successfully!');
+            })
+            .catch(error => {
+                alert('Error sending email: ' + error);
+            });
     });
-});
-</script>
-</script>
+    </script>
 </body>
 </html>
