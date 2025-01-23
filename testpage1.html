@@ -29,7 +29,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         email: document.getElementById('email').value,
         message: document.getElementById('message').value
     };
-    axios.post('https://script.google.com/macros/s/AKfycbzCx9bvz1hNzsVVWw2sBjmNJqhoGBOspHlqNSqib_SX7-1rTD4B2xMFbNRi7Ki2kPOs/exec', formData)
+    axios.post('https://script.google.com/macros/s/AKfycbzzlASihr9OtBbPmJrxspKABsOPPvN76gz2o6rsBTuj5IA7Fbae9T6N-D0406hZYMNo/exec', formData)
         .then(response => {
             alert('Email sent successfully!');
         })
