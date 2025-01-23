@@ -3,98 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gibson 2025</title>
-<style>
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-	    background-color: #FFC013;
-        }
-	h1 {
-            text-align: center;
-	    color: #DA291C;
-	    font-family: "Times New Roman", serif;
-	    font-size: 40px;	
-	    text-decoration-line: underline;
-	    text-decoration-color: #FFC013;
-	    background-color: tan;
-	    border: 4px solid #DA291C;
-        }
-        a:link {
-	     background-color: tan;  
-	     text-color: #DA291C;
-	     padding: 14px 25px;
- 	     text-align: center;
- 	     text-decoration: none;
- 	     display: inline-block;
-	     border: 3px solid #DA291C;
-	     border-radius: 30px;
- 	}
-	a:hover {
-	    color: red;
-        }
-	a:visited {
-	    color: #DA291C;
- 	}
-	fieldset {
-	    border: 3px solid #DA291C;
-  	    background-color: tan;
-  	    color: #DA291C;
-  	    padding: 5px 10px;
-	}
-	legend {
-	     font-size: 30px;
-	}
-</style>
+    <title>Contact Form</title>
 </head>
 <body>
-<center>
-<header>
-  <img src="banner3.png" alt="banner" />
-</header>
-<b>
-<div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="crew.html">Crew Tracking</a>
-  <a href="manager.html">Manager Tracking</a>
-  <a href="guidelines.html">Guideline Updates</a>
-  <a href="news.html">Store News</a>
-  <a href="links.html">Popular Links</a>
-  <a href="comments.html">Comments/Concerns</a>
-</div>
-</b>
-    <h1>Comments and Concerns</h1>
-
+    <h1>Contact Us</h1>
     <form id="contactForm" enctype="multipart/form-data">
-        <label for="name">Name:</label><br>
+        <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br><br>
-        <label for="email">Email:</label><br>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <br><br>
-        <label for="message">Message:</label><br>
+        <label for="message">Message:</label>
         <textarea id="message" name="message" required></textarea>
         <br><br>
-        <label for="file">Upload file:</label><br>
-        <input type="file" id="file" name="file"><br><br>
+        <label for="file">Upload file:</label>
+        <input type="file" id="file" name="file" required>
+        <br><br>
         <input type="submit" value="Send">
     </form>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
     document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const formData = new FormData(document.getElementById('contactForm'));
         
-        axios.post('https://script.google.com/macros/s/AKfycbyFE7V5NcwrchqUuFuOb0NnCyc0TOpqDmjjZd-9N8yUiOrxKEJv3jG77TIOOXK6pLwy/exec', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
+        axios.post('https://script.google.com/macros/s/AKfycbxKVy7rQz3k8Ducg6CUIW5CONUmMJIVHVjdrdyAkA5hoWQYnM6Ejbqa9Q2eioYEiWyw/exec', formData)
         .then(response => {
             alert('Email sent successfully!');
         })
