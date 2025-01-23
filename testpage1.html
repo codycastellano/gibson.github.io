@@ -3,95 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Website</title>
-    <link rel="stylesheet" href="styles.css">
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #FFC013;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #DA291C;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 1em;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-main {
-    padding: 1em;
-}
-
-article {
-    margin-bottom: 2em;
-}
-
-footer {
-    background-color: #DA291C;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    position: absolute;
-    width: 100%;
-}
-</style>
+    <title>News Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            margin: 20px 0;
+        }
+        .main-article, .side-article {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .main-article {
+            flex: 2;
+        }
+        .side-article {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Gibson News</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
- 		<li><a href="crew.html">Crew Tracking</a></li>
-  		<li><a href="manager.html">Manager Tracking</a></li>
-  		<li><a href="guidelines.html">Guideline Updates</a><li>
- 		<li><a href="news.html">Store News</a></li>
-  		<li><a href="links.html">Popular Links</a></li>
- 		<li><a href="comments.html">Comments/Concerns</a></li>
-            </ul>
-        </nav>
-    </header>
-<center>
-    <main>
-        <article>
-            <h2>Corporate Visit Updates:</h2>
-            <p>Required Passing CFV Score is now 85% &#128517</p>
-	    <p>Ecosure now will cite/take points off, rather than coach, on improper glove removing procedures, gloves must be taken off at the back of the hand!</p>
-            <a href="#">Read more</a>
-        </article>
-        <article>
-            <h2>Awards:</h2>
-            <p>Janurary Crew of The Month - TBD</p>
-	    <p>Manager of the Quarter 1 - TBD</p>
-            <a href="#">Read more</a>
-        </article>
-        <article>
-            <h2>Upcoming:</h2>
-            <p>CFV Visit - Corporate - 1st Visit/3 Visits</p>
- 	    <p>EcoSure Visit - Corporate - 1st Visit/2 Visits</p>
-	    <p>Monthly Cleanliness Walk-through with Skye - February</p>
-            <a href="#">Read more</a>
-        </article>
-    </main>
-</center>
-    <footer>
-        <p>&copy; 2025 Gibson News.</p>
-    </footer>
+    <div class="container">
+        <div class="side-article">
+            <h2>Side Article 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...</p>
+        </div>
+        <div class="main-article">
+            <h1>Main Article</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+        </div>
+        <div class="side-article">
+            <h2>Side Article 2</h2>
+            <p>Proin eget tortor risus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus...</p>
+        </div>
+    </div>
 </body>
+</html>
+
