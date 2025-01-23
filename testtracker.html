@@ -6,8 +6,6 @@
     <title>Employee Tracker</title>
     <style>
         body {
-	    background-color: #DA291C;
-	    font-color: #FFC013;
             font-family: Arial, sans-serif;
             padding: 20px;
         }
@@ -21,7 +19,6 @@
     </style>
 </head>
 <body>
-<center>
     <div class="container">
         <h1>Employee Tracker</h1>
 
@@ -59,95 +56,75 @@
         <h2>Employee List</h2>
         <div class="employee-list" id="employeeList"></div>
     </div>
-</center>
 
     <!-- Include JavaScript code -->
     <script>
-        // Employee class to create employee objects
-        class Employee {
-            constructor(id, name, score) {
-                this.id = id;
-                this.name = name;
-                this.score = score;
+        const API_URL = 'http://localhost:3000';
+
+        // Fetch employees from the server and display them
+        async function fetchEmployees() {
+            const response = await fetch(`${API_URL}/employees`);
+            const employees = await response.json();
+            displayEmployees(employees);
+        }
+
+        // Display employees in the employee list section
+        function displayEmployees(employees) {
+            const employeeList = document.getElementById('employeeList');
+            employeeList.innerHTML = '';
+            for (const id in employees) {
+                const emp = employees[id];
+                const empDiv = document.createElement('div');
+                empDiv.textContent = `ID: ${emp.id}, Name: ${emp.name}, Score: ${emp.score}`;
+                employeeList.appendChild(empDiv);
             }
         }
 
-        // EmployeeTracker class to manage employees
-        class EmployeeTracker {
-            constructor() {
-                this.employees = {};
-            }
-
-            // Add a new employee
-            addEmployee(id, name, score = 0) {
-                if (this.employees[id]) {
-                    alert(`Employee with ID ${id} already exists.`);
-                    return;
-                }
-                this.employees[id] = new Employee(id, name, score);
-                alert(`Added employee: ${name}`);
-                this.displayEmployees();
-            }
-
-            // Remove an existing employee
-            removeEmployee(id) {
-                if (!this.employees[id]) {
-                    alert(`Employee with ID ${id} does not exist.`);
-                    return;
-                }
-                delete this.employees[id];
-                alert(`Removed employee with ID ${id}`);
-                this.displayEmployees();
-            }
-
-            // Update employee score
-            updateScore(id, score) {
-                if (!this.employees[id]) {
-                    alert(`Employee with ID ${id} does not exist.`);
-                    return;
-                }
-                this.employees[id].score = score;
-                alert(`Updated score for employee ID ${id} to ${score}`);
-                this.displayEmployees();
-            }
-
-            // List all employees
-            displayEmployees() {
-                const employeeList = document.getElementById('employeeList');
-                employeeList.innerHTML = '';
-                for (const id in this.employees) {
-                    const emp = this.employees[id];
-                    const empDiv = document.createElement('div');
-                    empDiv.textContent = `ID: ${emp.id}, Name: ${emp.name}, Score: ${emp.score}`;
-                    employeeList.appendChild(empDiv);
-                }
-            }
-        }
-
-        // Create an instance of EmployeeTracker
-        const tracker = new EmployeeTracker();
-
-        // Add event listeners for form submissions
-        document.getElementById('addEmployeeForm').addEventListener('submit', function(event) {
+        // Add a new employee
+        document.getElementById('addEmployeeForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const id = parseInt(document.getElementById('addEmployeeId').value);
             const name = document.getElementById('addEmployeeName').value;
             const score = parseInt(document.getElementById('addEmployeeScore').value);
-            tracker.addEmployee(id, name, score);
+
+            await fetch(`${API_URL}/employees`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, name, score })
+            });
+
+            fetchEmployees();
         });
 
-        document.getElementById('updateScoreForm').addEventListener('submit', function(event) {
+        // Update an employee's score
+        document.getElementById('updateScoreForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const id = parseInt(document.getElementById('updateEmployeeId').value);
             const score = parseInt(document.getElementById('updateEmployeeScore').value);
-            tracker.updateScore(id, score);
+
+            await fetch(`${API_URL}/employees/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ score })
+            });
+
+            fetchEmployees();
         });
 
-        document.getElementById('removeEmployeeForm').addEventListener('submit', function(event) {
+        // Remove an employee
+        document.getElementById('removeEmployeeForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const id = parseInt(document.getElementById('removeEmployeeId').value);
-            tracker.removeEmployee(id);
+
+            await fetch(`${API_URL}/employees/${id}`, {
+                method: 'DELETE'
+            });
+
+            fetchEmployees();
         });
+
+        // Fetch and display employees on page load
+        window.onload = fetchEmployees;
     </script>
 </body>
 </html>
