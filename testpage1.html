@@ -9,15 +9,32 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
             background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            background-color: #444;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
         }
         .container {
             display: flex;
-            width: 80%;
+            justify-content: center;
             margin: 20px 0;
         }
         .main-article, .side-article {
@@ -32,43 +49,46 @@
         .side-article {
             flex: 1;
         }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: absolute;
+            width: 100%;
+        }
     </style>
 </head>
-<header>
-  <img src="banner3.png" alt="banner" />
-<b>
-<center>
-<div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="crew.html">Crew Tracking</a>
-  <a href="manager.html">Manager Tracking</a>
-  <a href="guidelines.html">Guideline Updates</a>
-  <a href="news.html">Store News</a>
-  <a href="links.html">Popular Links</a>
-  <a href="comments.html">Comments/Concerns</a>
-</div><br>
-</center></b>
-</header>
-<h1>Gibson News and Updates</h1>
 <body>
+    <header>
+        <h1>Daily News</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">World</a></li>
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Entertainment</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <div class="side-article">
-  <h2>Corporate Visit Updates:</h2>
-  <p>Required Passing CFV Score is now 85% &#128517</p>
-  <p>Ecosure now will cite/take points off, rather than coach, on improper glove removing procedures, gloves must be taken off at the back of the hand!</p>
+            <h2>Side Article 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...</p>
         </div>
         <div class="main-article">
-  <h2>Awards:</h2>
-  <p>Janurary Crew of The Month - TBD</p>
-  <p>Manager of the Quarter 1 - TBD</p>
+            <h1>Main Article</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
         </div>
         <div class="side-article">
-  <h2>Upcoming:</h2>
-  <p>CFV Visit - Corporate - 1st Visit/3 Visits </p>
-  <p>EcoSure Visit - Corporate - 1st Visit/2 Visits</p>
-  <p>Monthly Cleanliness Walk-through with Skye - February</p>
+            <h2>Side Article 2</h2>
+            <p>Proin eget tortor risus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus...</p>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2025 Daily News. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
