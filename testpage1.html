@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Contact Us</h1>
-    <form id="contactForm">
+    <form id="contactForm" enctype="application/x-www-form-urlencoded">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br><br>
@@ -25,16 +25,19 @@
         event.preventDefault();
         
         const formData = new FormData(document.getElementById('contactForm'));
-        
-        axios.post('https://script.google.com/macros/s/AKfycbwit1-Dpvoxq6runjW0EPcdmvf_t9yO81rZ1XQbfbps67UpmcyN8Fe7Qnz7pgxjVKUq/exec', formData)
-            .then(response => {
-                alert('Email sent successfully!');
-            })
-            .catch(error => {
-                console.error('Error sending email:', error);
-                alert('Error sending email: ' + error);
-            });
+        const plainFormData = Object.fromEntries(formData.entries());
+
+        axios.post('https://script.google.com/macros/s/AKfycbwit1-Dpvoxq6runjW0EPcdmvf_t9yO81rZ1XQbfbps67UpmcyN8Fe7Qnz7pgxjVKUq/exec', plainFormData, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => {
+            alert('Email sent successfully!');
+        })
+        .catch(error => {
+            console.error('Error sending email:', error);
+            alert('Error sending email: ' + error);
+        });
     });
     </script>
-</body>
-</html>
