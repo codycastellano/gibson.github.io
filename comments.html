@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson 2025</title>
+<title>Gibson 2025</title>
 <style>
         img {
             max-width: 100%;
@@ -65,33 +65,42 @@
   <a href="news.html">Store News</a>
   <a href="links.html">Popular Links</a>
   <a href="comments.html">Comments/Concerns</a>
-</div>
-</b></center>
+</div></b>
     <h1>Comments and Concerns</h1>
-<center>
-<form action="https://api.web3forms.com/submit" method="POST">
 <fieldset>
-<legend> Direct to GM </legend>
-    <!-- Replace with your Access Key -->
-    <input type="hidden" name="access_key" value="f24743cf-539f-43f0-bb85-45d09001bdf9">
-
-    <!-- Form Inputs. Each input must have a name="" attribute -->
-    <label for="name">Name</label><br>
-    <input type="text" name="name" required><br><br>
-    <label for="email">Email</label><br>
-    <input type="email" name="email" required><br><br>
-    <label for="message">Comments/Concerns</label><br>
-    <textarea name="message" required></textarea><br><br>
+<legend>Direct to GM</legend>
+    <form id="contactForm" enctype="multipart/form-data">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required>
         <br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" required></textarea>
+        <br><br>
+	<p>COMING SOON!</p>
+        <label for="file">Upload file:</label><br>
+        <input type="file" id="file" name="file" disabled>
+        <br><br>
+        <input type="submit" value="Send">
+</fieldset></form></center>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    <!-- Honeypot Spam Protection -->
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-    <!-- Custom Confirmation / Success Page -->
-    <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
-
-    <button type="submit">Submit Form</button>
-</fieldset>
-</form></center>  
+        const formData = new FormData(document.getElementById('contactForm'));
+        
+        axios.post('https://script.google.com/macros/s/AKfycbxKVy7rQz3k8Ducg6CUIW5CONUmMJIVHVjdrdyAkA5hoWQYnM6Ejbqa9Q2eioYEiWyw/exec', formData)
+        .then(response => {
+            alert('Email sent successfully!');
+        })
+        .catch(error => {
+            console.error('Error sending email:', error);
+            alert('Error sending email: ' + error);
+        });
+    });
+    </script>
 </body>
 </html>
