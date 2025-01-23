@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .employee-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Tracker</h1>
+
+        <!-- Form to add a new employee -->
+        <h2>Add Employee</h2>
+        <form id="addEmployeeForm">
+            <label for="addEmployeeId">ID:</label>
+            <input type="number" id="addEmployeeId" required><br><br>
+            <label for="addEmployeeName">Name:</label>
+            <input type="text" id="addEmployeeName" required><br><br>
+            <label for="addEmployeeScore">Score:</label>
+            <input type="number" id="addEmployeeScore" value="0" required><br><br>
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <!-- Form to update an employee's score -->
+        <h2>Update Employee Score</h2>
+        <form id="updateScoreForm">
+            <label for="updateEmployeeId">ID:</label>
+            <input type="number" id="updateEmployeeId" required><br><br>
+            <label for="updateEmployeeScore">New Score:</label>
+            <input type="number" id="updateEmployeeScore" required><br><br>
+            <button type="submit">Update Score</button>
+        </form>
+
+        <!-- Form to remove an employee -->
+        <h2>Remove Employee</h2>
+        <form id="removeEmployeeForm">
+            <label for="removeEmployeeId">ID:</label>
+            <input type="number" id="removeEmployeeId" required><br><br>
+            <button type="submit">Remove Employee</button>
+        </form>
+
+        <!-- Section to display the employee list -->
+        <h2>Employee List</h2>
+        <div class="employee-list" id="employeeList"></div>
+    </div>
+
+    <!-- Include JavaScript code -->
+    <script>
+        // Employee class to create employee objects
+        class Employee {
+            constructor(id, name, score) {
+                this.id = id;
+                this.name = name;
+                this.score = score;
+            }
+        }
+
+        // EmployeeTracker class to manage employees
+        class EmployeeTracker {
+            constructor() {
+                this.employees = {};
+            }
+
+            // Add a new employee
+            addEmployee(id, name, score = 0) {
+                if (this.employees[id]) {
+                    alert(`Employee with ID ${id} already exists.`);
+                    return;
+                }
+                this.employees[id] = new Employee(id, name, score);
+                alert(`Added employee: ${name}`);
+                this.displayEmployees();
+            }
+
+            // Remove an existing employee
+            removeEmployee(id) {
+                if (!this.employees[id]) {
+                    alert(`Employee with ID ${id} does not exist.`);
+                    return;
+                }
+                delete this.employees[id];
+                alert(`Removed employee with ID ${id}`);
+                this.displayEmployees();
+            }
+
+            // Update employee score
+            updateScore(id, score) {
+                if (!this.employees[id]) {
+                    alert(`Employee with ID ${id} does not exist.`);
+                    return;
+                }
+                this.employees[id].score = score;
+                alert(`Updated score for employee ID ${id} to ${score}`);
+                this.displayEmployees();
+            }
+
+            // List all employees
+            displayEmployees() {
+                const employeeList = document.getElementById('employeeList');
+                employeeList.innerHTML = '';
+                for (const id in this.employees) {
+                    const emp = this.employees[id];
+                    const empDiv = document.createElement('div');
+                    empDiv.textContent = `ID: ${emp.id}, Name: ${emp.name}, Score: ${emp.score}`;
+                    employeeList.appendChild(empDiv);
+                }
+            }
+        }
+
+        // Create an instance of EmployeeTracker
+        const tracker = new EmployeeTracker();
+
+        // Add event listeners for form submissions
+        document.getElementById('addEmployeeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = parseInt(document.getElementById('addEmployeeId').value);
+            const name = document.getElementById('addEmployeeName').value;
+            const score = parseInt(document.getElementById('addEmployeeScore').value);
+            tracker.addEmployee(id, name, score);
+        });
+
+        document.getElementById('updateScoreForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = parseInt(document.getElementById('updateEmployeeId').value);
+            const score = parseInt(document.getElementById('updateEmployeeScore').value);
+            tracker.updateScore(id, score);
+        });
+
+        document.getElementById('removeEmployeeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = parseInt(document.getElementById('removeEmployeeId').value);
+            tracker.removeEmployee(id);
+        });
+    </script>
+</body>
+</html>
