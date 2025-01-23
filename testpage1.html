@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson 2025</title>
-<style>
+    <title>News Website</title>
+    <link rel="stylesheet" href="styles.css">
 body {
-  background-color: #DA291C;
-}
-.header {
-  background-color: #F1F1F1;
-  text-align: center;
-  padding: 20px;
-}
-/* The navbar container */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Navbar links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
 }
 
-/* Links - change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-.column {
-  float: left;
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* Left and right column */
-.column.side {
-  width: 25%;
+nav ul li {
+    display: inline;
+    margin: 0 1em;
 }
 
-/* Middle column */
-.column.middle {
-  width: 50%;
+nav ul li a {
+    color: white;
+    text-decoration: none;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column.side, .column.middle {
+main {
+    padding: 1em;
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: absolute;
     width: 100%;
-  }
 }
-</style>
+
 </head>
 <body>
-
-
-
-
+    <header>
+        <h1>Daily News</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">World</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Entertainment</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Headline News</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis urna at quam fermentum vehicula. Phasellus tincidunt...</p>
+            <a href="#">Read more</a>
+        </article>
+        <article>
+            <h2>World News</h2>
+            <p>Donec sit amet tincidunt nisi. Praesent gravida est ac nulla tincidunt, a tristique arcu bibendum...</p>
+            <a href="#">Read more</a>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2025 Daily News. All rights reserved.</p>
+    </footer>
 </body>
-</html>
